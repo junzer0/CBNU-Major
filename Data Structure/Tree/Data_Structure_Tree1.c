@@ -1,17 +1,17 @@
-// ¼ö½Ä (A*B-C/D)¿¡ ´ëÇÑ ÀÌÁø Æ®¸®¸¦ ¿¬°á ÀÚ·á±¸Á¶ ¹æ½ÄÀ¸·Î Ç¥ÇöÇÏ°í
-// makeRootNode( )ÇÔ¼ö¸¦ ÀÌ¿ëÇØ ÀüÀ§ ¼øÈ¸, ÁßÀ§ ¼øÈ¸, ÈÄÀ§ ¼øÈ¸¸¦ ¼öÇàÇÑ °æ·Î¸¦ Ãâ·ÂÇÏ¿© È®ÀÎÇÏ´Â ÇÁ·Î±×·¥
+// ìˆ˜ì‹ (A*B-C/D)ì— ëŒ€í•œ ì´ì§„ íŠ¸ë¦¬ë¥¼ ì—°ê²° ìžë£Œêµ¬ì¡° ë°©ì‹ìœ¼ë¡œ í‘œí˜„í•˜ê³ 
+// makeRootNode( )í•¨ìˆ˜ë¥¼ ì´ìš©í•´ ì „ìœ„ ìˆœíšŒ, ì¤‘ìœ„ ìˆœíšŒ, í›„ìœ„ ìˆœíšŒë¥¼ ìˆ˜í–‰í•œ ê²½ë¡œë¥¼ ì¶œë ¥í•˜ì—¬ í™•ì¸í•˜ëŠ” í”„ë¡œê·¸ëž¨
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <memory.h>
 
-typedef struct treeNode { // ¿¬°á ÀÚ·á±¸Á¶·Î ±¸¼ºÇÏ±â À§ÇØ Æ®¸®ÀÇ ³ëµå Á¤ÀÇ
+typedef struct treeNode { // ì—°ê²° ìžë£Œêµ¬ì¡°ë¡œ êµ¬ì„±í•˜ê¸° ìœ„í•´ íŠ¸ë¦¬ì˜ ë…¸ë“œ ì •ì˜
 	char data;
-	struct treeNode* left; // ¿ÞÂÊ ¼­ºê Æ®¸®¿¡ ´ëÇÑ ¸µÅ© ÇÊµå
-	struct treeNode* right; // ¿À¸¥ÂÊ ¼­ºê Æ®¸®¿¡ ´ëÇÑ ¸µÅ© ÇÊµå
+	struct treeNode* left; // ì™¼ìª½ ì„œë¸Œ íŠ¸ë¦¬ì— ëŒ€í•œ ë§í¬ í•„ë“œ
+	struct treeNode* right; // ì˜¤ë¥¸ìª½ ì„œë¸Œ íŠ¸ë¦¬ì— ëŒ€í•œ ë§í¬ í•„ë“œ
 } treeNode;
 
-// data¸¦ ·çÆ® ³ëµå·Î ÇÏ¿© ¿ÞÂÊ ¼­ºê Æ®¸®¿Í ¿À¸¥ÂÊ ¼­ºê Æ®¸®¸¦ ¿¬°áÇÏ´Â ¿¬»ê
+// dataë¥¼ ë£¨íŠ¸ ë…¸ë“œë¡œ í•˜ì—¬ ì™¼ìª½ ì„œë¸Œ íŠ¸ë¦¬ì™€ ì˜¤ë¥¸ìª½ ì„œë¸Œ íŠ¸ë¦¬ë¥¼ ì—°ê²°í•˜ëŠ” ì—°ì‚°
 treeNode* makeRootNode(char data, treeNode* leftNode, treeNode* rightNode) {
 	treeNode* root = (treeNode*)malloc(sizeof(treeNode));
 	root->data = data;
@@ -20,7 +20,7 @@ treeNode* makeRootNode(char data, treeNode* leftNode, treeNode* rightNode) {
 	return root;
 }
 
-// ÀÌÁø Æ®¸®¿¡ ´ëÇÑ ÀüÀ§ ¼øÈ¸ ¿¬»ê
+// ì´ì§„ íŠ¸ë¦¬ì— ëŒ€í•œ ì „ìœ„ ìˆœíšŒ ì—°ì‚°
 void preorder(treeNode* root) {
 
 	if (root) {
@@ -30,26 +30,26 @@ void preorder(treeNode* root) {
 	}
 }
 
-// ÀÌÁø Æ®¸®¿¡ ´ëÇÑ ÁßÀ§ ¼øÈ¸ ¿¬»ê
+// ì´ì§„ íŠ¸ë¦¬ì— ëŒ€í•œ ì¤‘ìœ„ ìˆœíšŒ ì—°ì‚°
 void inorder(treeNode* root) {
 	if (root) {
 		inorder(root->left);
-		printf("c", root->data);
+		printf("%c", root->data);
 		inorder(root->right);
 	}
 }
 
-// ÀÌÁø Æ®¸®¿¡ ´ëÇÑ ÈÄÀ§ ¼øÈ¸ ¿¬»ê
+// ì´ì§„ íŠ¸ë¦¬ì— ëŒ€í•œ í›„ìœ„ ìˆœíšŒ ì—°ì‚°
 void postorder(treeNode* root) {
 	if (root) {
 		postorder(root->left);
 		postorder(root->right);
-		printf("c", root->data);
+		printf("%c", root->data);
 	}
 }
 
 void main() {
-	// ¼ö½Ä (A*B-C/D)¸¦ ÀÌÁø Æ®¸®·Î ¸¸µé±â
+	// ìˆ˜ì‹ (A*B-C/D)ë¥¼ ì´ì§„ íŠ¸ë¦¬ë¡œ ë§Œë“¤ê¸°
 	treeNode* n7 = makeRootNode('D', NULL, NULL);
 	treeNode* n6 = makeRootNode('C', NULL, NULL);
 	treeNode* n5 = makeRootNode('B', NULL, NULL);
