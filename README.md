@@ -6,3 +6,4 @@
 - [데이터 통신 설계(Data Communication Design)](https://github.com/junzer0/CBNU-Major/tree/9fa220a46ad554d02c090f8d7673cf501e489c56/Data-Communication-Design)
 - [신호 및 시스템(Signals and Systems)](https://github.com/junzer0/CBNU-Major/tree/63bd302a1ac4d80eaa782d6335ec403e11eec8f0/Signals%20and%20Systems)
 - [통신 공학(Communication Engineering)](https://github.com/junzer0/CBNU-Major/tree/c15782331867262ca87d3fc0480bfdebc66c6352/Communication-Egineering)
+- [자율주행PG응용(Autonomous Vehicle Proving Grounds)](https://github.com/junzer0/CBNU-Major/tree/cfd80425804698f2ee7faa9851d242e709267d89/Autonomous-Vehicle-Proving-Grounds/Introduction-to-MORAI-SIM)
